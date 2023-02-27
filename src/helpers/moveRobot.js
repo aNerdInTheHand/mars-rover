@@ -12,8 +12,8 @@ const moveRobot = ({
 }) => {
   // mutating variables due to time constraints
   let direction = currentOrientation
-  let x = currentX
-  let y = currentY
+  let x = Number(currentX)
+  let y = Number(currentY)
   let outOfBounds = false
   finalPosition = commandList
     .split('')
@@ -48,9 +48,11 @@ const moveRobot = ({
         })
       }
     })
-  return outOfBounds
+  const output = outOfBounds
     ? `(${x}, ${y}, ${direction}) LOST`
     : `(${x}, ${y}, ${direction})`
+  console.log(`${output}`)
+  return output
 }
 
 module.exports = moveRobot
