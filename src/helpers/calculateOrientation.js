@@ -3,7 +3,7 @@ const calculateOrientation = ({ C }) => ({
   direction
 }) => {
   const currentOrientationIndex = C.commands.directions.indexOf(currentOrientation)
-  
+
   const orientationIndex = direction === C.commands.left
     ? currentOrientationIndex - 1
     : currentOrientationIndex === 3

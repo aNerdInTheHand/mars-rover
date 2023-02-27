@@ -4,6 +4,8 @@
   "description": "Command line program to move Mars rover robots around a grid",
   "main": "index.js",
   "scripts": {
+    "lint": "standard",
+    "pretest": "npm run lint",
     "start": "node src/index.js",
     "test": "mocha --recursive"
   },
@@ -24,6 +26,12 @@
   },
   "homepage": "https://github.com/aNerdInTheHand/mars-rover#readme",
   "devDependencies": {
-    "mocha": "^10.2.0"
+    "mocha": "^10.2.0",
+    "standard": "^17.0.0"
+  },
+  "standard": {
+    "ignore": [
+      "test/**/*"
+    ]
   }
 }

@@ -3,10 +3,12 @@ const C = require('./constants')
 const initCalculateOrientation = require('./helpers/calculateOrientation')
 const initMoveRobot = require('./helpers/moveRobot')
 const initValidateGrid = require('./helpers/validateGrid')
+const initValidateRobotCommands = require('./helpers/validateRobotCommands')
 
+const calculateOrientation = initCalculateOrientation({ C })
 const robotIsLost = require('./helpers/robotIsLost')
 const validateGrid = initValidateGrid({ C })
-const calculateOrientation = initCalculateOrientation({ C })
+const validateRobotCommands = initValidateRobotCommands({ C })
 const moveRobot = initMoveRobot({ C, calculateOrientation, robotIsLost })
 
 const readInput = async () => {
@@ -16,9 +18,6 @@ const readInput = async () => {
   })
 
   let gridSize
-
-  rl.setPrompt(C.messages.prompts.gridPrompt)
-  rl.prompt()
 
   if (!gridSize) {
     const input = await rl.question(C.messages.prompts.gridPrompt)
@@ -30,9 +29,19 @@ const readInput = async () => {
 
   while (true) {
     const input = await rl.question(C.messages.prompts.robotPrompt)
-    const [x, y, direction] = input.match(/\((.*?)\)/)[1].split(', ')
+
+    validateRobotCommands({
+      boundaryX: gridSize.m,
+      boundaryY: gridSize.n,
+      input
+    })
+
+    const [x, y, direction] = input
+      .match(/\((.*?)\)/)[1]
+      .split(', ')
+
     const commandList = input.split(')')[1].trim()
-    console.log(`x: ${x}, y: ${y}, direction: ${direction}, commandList: ${commandList}`)
+
     moveRobot({
       boundaryX: gridSize.m,
       boundaryY: gridSize.n,
@@ -42,6 +51,6 @@ const readInput = async () => {
       currentY: y
     })
   }
-  }
+}
 
 readInput()
