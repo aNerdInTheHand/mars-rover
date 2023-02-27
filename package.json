@@ -4,6 +4,7 @@
   "description": "Command line program to move Mars rover robots around a grid",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "mocha --recursive"
   },
   "repository": {
