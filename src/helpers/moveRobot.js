@@ -8,6 +8,13 @@ const moveRobot = ({
   currentOrientation,
   currentX,
   currentY
-}) => 'TODO'
+}) => {
+  let position = {
+    currentX,
+    currentY,
+    currentOrientation
+  }
+  return 'TODO'
+}
 
 module.exports = moveRobot
