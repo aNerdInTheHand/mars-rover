@@ -1,5 +1,5 @@
-const validateGrid = ({ x, y }) => {
-  if (x < 0 || y < 0) throw RangeError()
+const validateGrid = ({ m, n }) => {
+  if (m < 0 || n < 0) throw RangeError()
 }
 
 module.exports = validateGrid
