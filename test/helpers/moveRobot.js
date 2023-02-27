@@ -1,9 +1,12 @@
 const assert = require('assert')
-const sandbox = sinon.createSandbox()
 const C = require('../../src/constants')
-const initMoveRobot = require('../../src/helpers/moveRobot')
 
-let robotIsLost
+// not stubbing other helper functions due to time constraints
+const initCalculateOrientation = require('../../src/helpers/calculateOrientation')
+const robotIsLost = require('../../src/helpers/robotIsLost')
+const calculateOrientation = initCalculateOrientation({ C })
+
+const initMoveRobot = require('../../src/helpers/moveRobot')
 
 const boundaryX = 3
 const boundaryY = 3
@@ -28,29 +31,10 @@ const outOfBoundsParameters = Object.assign(
   { commandList: 'LFFFRF' }
 )
 
-beforeEach(() => {
-  // stub robotIsLost function
-  robotIsLost = sinon.stub()
-  // this scenario will be called in out of bounds test
-  robotIsLost
-    .withArgs({
-      boundaryX,
-      boundaryY,
-      currentX: -1,
-      currentY: 1
-    })
-    .returns(false)
-  robotIsLost
-    .returns(false)
-})
-
-afterEach(() => {
-  sandbox.restore()
-})
-
 describe('helpers/moveRobot', () => {
   const moveRobot = initMoveRobot({
     C,
+    calculateOrientation,
     robotIsLost
   })
   describe('Robot in bounds', () => {
