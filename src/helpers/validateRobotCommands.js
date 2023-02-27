@@ -7,11 +7,11 @@ const validateRobotCommands = ({ C }) => ({
     throw Error(C.messages.error.robotCommandInvalid)
   }
   const [x, y, _] = input
-    .match(C.validation.initialPositionRegex)[1]
+    .match(/\((.*?)\)/)[1]
     .split(', ')
   
   if (x > boundaryX || y > boundaryY) {
-    throw Error(C.messages.error.robotCommandInvalid)
+    throw Error(C.messages.error.robotOutOfBounds)
   }
 }
 

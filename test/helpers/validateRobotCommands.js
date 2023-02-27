@@ -37,7 +37,7 @@ describe('helpers/validateRobotCommands', () => {
           boundaryY: 9,
           input: '(10, 0, N) LFRRR'
         }),
-        Error(errorMessages.robotCommandInvalid)
+        Error(errorMessages.robotOutOfBounds)
       )
     })
   })
