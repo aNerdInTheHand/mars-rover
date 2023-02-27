@@ -1,0 +1,25 @@
+{
+  "name": "mars-rover",
+  "version": "0.0.1",
+  "description": "Command line program to move Mars rover robots around a grid",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aNerdInTheHand/mars-rover.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Nick Holvast",
+  "license": "unlicense",
+  "bugs": {
+    "url": "https://github.com/aNerdInTheHand/mars-rover/issues"
+  },
+  "homepage": "https://github.com/aNerdInTheHand/mars-rover#readme",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
+}
