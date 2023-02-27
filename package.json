@@ -4,7 +4,11 @@
   "description": "Command line program to move Mars rover robots around a grid",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "start": "node src/index.js",
+    "test": "mocha --recursive"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "repository": {
     "type": "git",
