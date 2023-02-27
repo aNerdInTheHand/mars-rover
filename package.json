@@ -7,6 +7,9 @@
     "start": "node src/index.js",
     "test": "mocha --recursive"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aNerdInTheHand/mars-rover.git"
