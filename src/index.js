@@ -16,6 +16,8 @@ const readInput = async () => {
 
   rl.on('line', input => {
     if (!gridSize) {
+      const [m, n] = input.split(' ')
+      validateGrid({ m: Number(m), n: Number(n) })
       gridSize = input
       console.log(`Grid size set to ${input}`)
       rl.setPrompt(C.messages.prompts.robotPrompt)
