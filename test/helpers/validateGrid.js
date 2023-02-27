@@ -5,23 +5,35 @@ const initValidateGrid = require('../../src/helpers/validateGrid')
 const validateGrid = initValidateGrid({ C })
 
 describe('helpers/validateGrid', () => {
-  describe('RangeErrors', () => {
-    it('should throw a RangeError if m < 0 and n >= 0', () => {
+  describe('Errors', () => {
+    it('should throw an error if m < 0 and n >= 0', () => {
       assert.throws(
         () => validateGrid({ m: -1, n: 0 }),
-        RangeError(errorMessages.gridInputOutOfRange)
+        Error(errorMessages.gridInputInvalid)
       )
     })
-    it('should throw a RangeError if m < 0 and n < 0', () => {
+    it('should throw an error if m < 0 and n < 0', () => {
       assert.throws(
         () => validateGrid({ m: -1, n: -1000 }),
-        RangeError(errorMessages.gridInputOutOfRange)
+        Error(errorMessages.gridInputInvalid)
       )
     })
-    it('should throw a RangeError if m >= 0 and n < 0', () => {
+    it('should throw an error if m >= 0 and n < 0', () => {
       assert.throws(
         () => validateGrid({ m: 1, n: -1 }),
-        RangeError(errorMessages.gridInputOutOfRange)
+        Error(errorMessages.gridInputInvalid)
+      )
+    })
+    it('should throw an error if either parameter is a float', () => {
+      assert.throws(
+        () => validateGrid({ m: 1.5, n: 1 }),
+        Error(errorMessages.gridInputInvalid)
+      )
+    })
+    it('should throw an error if either parameter is a string', () => {
+      assert.throws(
+        () => validateGrid({ m: 1, n: '1' }),
+        Error(errorMessages.gridInputInvalid)
       )
     })
   })

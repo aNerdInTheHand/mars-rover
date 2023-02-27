@@ -2,6 +2,6 @@ const ERROR = 'ERROR:'
 
 module.exports = {
   error: {
-    gridInputOutOfRange: `${ERROR} m and n co-ordinates must both be greater than 0`
+    gridInputInvalid: `${ERROR} grid input must be in the format m n where m and n are positive integers`
   }
 }
