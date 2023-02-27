@@ -1,6 +1,8 @@
 const assert = require('assert')
-const errorMessages = require('../../src/constants').messages.error
-const validateGrid = require('../../src/helpers/validateGrid')
+const C = require('../../src/constants')
+const errorMessages = C.messages.error
+const initValidateGrid = require('../../src/helpers/validateGrid')
+const validateGrid = initValidateGrid({ C })
 
 describe('helpers/validateGrid', () => {
   describe('RangeErrors', () => {
