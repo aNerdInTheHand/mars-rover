@@ -1,5 +1,7 @@
 const assert = require('assert')
-const calculateOrientation = require('../../src/helpers/calculateOrientation')
+const C = require('../../src/constants')
+const initCalculateOrientation = require('../../src/helpers/calculateOrientation')
+const calculateOrientation = initCalculateOrientation({ C })
 
 describe('helpers/calculateOrientation', () => {
   describe('Turn left', () => {
