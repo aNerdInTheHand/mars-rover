@@ -15,7 +15,7 @@ const moveRobot = ({
   let x = Number(currentX)
   let y = Number(currentY)
   let outOfBounds = false
-  finalPosition = commandList
+  commandList
     .split('')
     .forEach(command => {
       if (outOfBounds) return
@@ -30,8 +30,7 @@ const moveRobot = ({
           })) {
             outOfBounds = true
           } else x = x + movement.value
-        }
-        else if (movement.axis === 'y') {
+        } else if (movement.axis === 'y') {
           if (robotIsLost({
             boundaryX,
             boundaryY,

@@ -29,19 +29,19 @@ const readInput = async () => {
 
   while (true) {
     const input = await rl.question(C.messages.prompts.robotPrompt)
-    
+
     validateRobotCommands({
       boundaryX: gridSize.m,
       boundaryY: gridSize.n,
       input
     })
-    
+
     const [x, y, direction] = input
       .match(/\((.*?)\)/)[1]
       .split(', ')
-    
+
     const commandList = input.split(')')[1].trim()
-    
+
     moveRobot({
       boundaryX: gridSize.m,
       boundaryY: gridSize.n,
